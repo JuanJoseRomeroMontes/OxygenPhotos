@@ -1,0 +1,106 @@
+.header {
+  background-image: url("../../assets/HeaderBackground.jpg");
+  background-position: center;
+  background-size: cover;
+  padding: 1em;
+}
+.header__main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__main__linkStyle {
+  text-decoration: none;
+}
+.header__main__title {
+  color: white;
+  font-weight: bold;
+  font-size: 2.625rem;
+  line-height: 3.125rem;
+  margin: 0;
+  width: 70%;
+  margin-bottom: 1.5rem;
+}
+.header__main__button {
+  width: 90px;
+  height: 2.1em;
+  border-radius: 10px;
+  border: 1px solid #bebebe;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 1.5rem;
+}
+.header__main__button p {
+  color: #828282;
+  font-size: 0.8rem;
+  margin: 0;
+  width: 50%;
+}
+.header__main__button img {
+  height: 1rem;
+  width: 0.9rem;
+}
+.header__main__search-bar {
+  background-color: white;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  padding: 0 0.3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 1.5em;
+  width: 50%;
+}
+.header__main__search-bar img {
+  height: 1.125em;
+  width: 1.125em;
+}
+.header__main__search-bar input {
+  border: none;
+  font-size: 12px;
+  margin-left: 0.2em;
+  width: 100%;
+}
+.header__main__dropdown-container {
+  background-color: white;
+  border: 1px solid #bebebe;
+  border-radius: 5px;
+  padding: 0 0.3em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 1.5em;
+  width: 40%;
+}
+.header__main__dropdown-container p {
+  border: none;
+  margin: 0;
+  font-size: 12px;
+  width: auto;
+}
+.header__main__dropdown-container select {
+  border: none;
+  font-size: 12px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .header__main {
+    margin-bottom: 1em;
+  }
+  .header__main__title {
+    width: auto;
+    margin-bottom: 0;
+  }
+  .header__main__button {
+    margin-bottom: 0;
+  }
+  .header__main__search-bar {
+    width: 45%;
+  }
+  .header__main__dropdown-container {
+    width: 15%;
+  }
+}/*# sourceMappingURL=Header.css.map */
