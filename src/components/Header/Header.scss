@@ -12,6 +12,10 @@
 
         &__linkStyle{
             text-decoration: none;
+
+            :hover{
+                cursor: pointer;
+            }
         }
 
         &__title{
@@ -25,7 +29,7 @@
         }
 
         &__button{
-            width: 90px;
+            width: 6.8em;
             height: 2.1em;
             border-radius: 10px;
             border: 1px solid #bebebe;
@@ -66,7 +70,7 @@
 
             input{
                 border: none;
-                font-size: 12px;
+                font-size: 0.75rem;
                 margin-left: 0.2em;
                 width: 100%;
             }
@@ -86,13 +90,13 @@
             p{
                 border: none;
                 margin: 0;
-                font-size: 12px;
+                font-size: 0.75rem;
                 width: auto;
             }
 
             select{
                 border: none;
-                font-size: 12px;
+                font-size: 0.75rem;
             }
         }
     }   

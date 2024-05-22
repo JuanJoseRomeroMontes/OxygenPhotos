@@ -1,8 +1,6 @@
-import { Link, Route, Routes } from 'react-router-dom'
-import { SearchPage } from './features/searchSlice/SearchSlice';
-import { FavouritePage } from './features/favouritesSlice/FavouritesSlice';
-import Header from './components/Header/Header';
-
+import { Route, Routes } from 'react-router-dom'
+import { FavouritePage } from './pages/FavouritePage';
+import { SearchPage } from './pages/SearchPage';
 
 function App() {
   return (

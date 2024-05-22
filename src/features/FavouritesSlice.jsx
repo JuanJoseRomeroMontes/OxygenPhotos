@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Header from "../../components/Header/Header";
 
 export const FavouriteSlice = createSlice({
     name: "search",
@@ -34,17 +33,3 @@ export const FavouriteSlice = createSlice({
 })
 
 export const {searchByDescription, orderByProperty, filterByTag, expandTags, reduceTags, removeFromFavourites, downloadImage, editDescription} = FavouriteSlice.reducer;
-
-export const FavouritePage = () => {
-    const favValues = {
-        titleName: 'Fav Images',
-        buttonText:'Fav',
-        imageUrl:'./src/assets/photosPage.svg',
-        imageAlt:'Photos page',
-        linkTo:'/'
-    }
-
-    return(
-        <Header values={favValues} />
-    )
-};

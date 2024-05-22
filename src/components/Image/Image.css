@@ -1,0 +1,62 @@
+.container {
+  margin: 10px;
+  width: 325px;
+  border: 1px solid red;
+  position: relative;
+  display: flex;
+}
+.container :hover ~ .container__ui {
+  visibility: visible;
+}
+.container__image {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.container__ui {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+.container__ui__button {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2%;
+  margin: 1%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container__ui__button__fav-image {
+  height: 1.4em;
+}
+.container__ui__button__download-image {
+  height: 1.5em;
+}
+.container__ui__button__text {
+  color: white;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 0.8rem;
+  margin: 0;
+}
+.container__ui__button__fav-position {
+  position: absolute;
+  right: 2%;
+  top: 2%;
+}
+.container__ui__button__download-position {
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+}
+.container__ui__button :hover {
+  cursor: pointer;
+}/*# sourceMappingURL=Image.css.map */

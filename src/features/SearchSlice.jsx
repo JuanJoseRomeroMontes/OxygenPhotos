@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Header from "../../components/Header/Header";
 
 export const SearchSlice = createSlice({
     name: "search",
@@ -34,17 +33,3 @@ export const SearchSlice = createSlice({
 })
 
 export const {searchByDescription, orderByProperty, filterByTag, expandTags, reduceTags, addToFavourites, downloadImage, editDescription} = SearchSlice.reducer;
-
-export const SearchPage = () => {
-    const homeValues = {
-        titleName: 'All Images',
-        buttonText:'All',
-        imageUrl:'./src/assets/favPage.svg',
-        imageAlt:'Fav page',
-        linkTo:'/favourites'
-    }
-
-    return(
-        <Header values={homeValues} />
-    )
-};

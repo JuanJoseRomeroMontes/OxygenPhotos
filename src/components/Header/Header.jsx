@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-function Header(props) {
-
+export const HeaderComponent = (props) => {
   return (
     <header className='header' >
       <div className="header__main">
@@ -16,7 +15,7 @@ function Header(props) {
 
         <div className='header__main__search-bar'>
             <img src='./src/assets/searchIcon.svg'/>
-            <input type='text' placeholder='Search' className='header__main__search-bar__input'></input>
+            <input type='text' placeholder='Search' className='header__main__search-bar__input'/>
         </div>
 
         <div  className='header__main__dropdown-container'>
@@ -33,7 +32,7 @@ function Header(props) {
   );
 }
 
-Header.defaultProps = {
+HeaderComponent.defaultProps = {
   values:{
     titleName: 'All Images',
     buttonText:'All',
@@ -42,5 +41,3 @@ Header.defaultProps = {
     linkTo:'/favourites'
   }
 }
-
-export default Header;

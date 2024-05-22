@@ -1,8 +1,5 @@
 body {
     font-family: "Inter";
     margin: 0;
-}
-
-h1 {
-    color: white;
+    box-sizing: border-box;
 }
