@@ -1,12 +1,7 @@
 .container {
   margin: 10px;
-  width: 325px;
-  border: 1px solid red;
   position: relative;
   display: flex;
-}
-.container :hover ~ .container__ui {
-  visibility: visible;
 }
 .container__image {
   width: 100%;
@@ -24,6 +19,7 @@
   padding: 10px;
 }
 .container__ui__button {
+  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 8px;
   width: -moz-fit-content;
@@ -33,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 1s;
 }
 .container__ui__button__fav-image {
   height: 1.4em;
@@ -59,4 +56,10 @@
 }
 .container__ui__button :hover {
   cursor: pointer;
+}
+
+@media only screen and (min-width: 1000px) {
+  .container {
+    width: 25%;
+  }
 }/*# sourceMappingURL=Image.css.map */

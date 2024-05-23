@@ -1,0 +1,32 @@
+.images-displayer{
+    width: 100%;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 5% 0;
+
+    &__separator{
+        border: 1px solid black;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        visibility: hidden;
+
+        &__first{
+            left: 33%;
+        }
+
+        &__second{
+            left: 66%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .images-displayer{
+        &__separator{
+            visibility: visible;
+        }
+    }
+}

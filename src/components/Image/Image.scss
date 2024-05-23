@@ -1,13 +1,7 @@
 .container{
     margin: 10px;
-    width: 325px;
-    border: 1px solid red;
     position: relative;
     display: flex;
-
-    :hover ~ .container__ui{
-        visibility: visible;
-    }
 
     &__image{
         width: 100%;
@@ -25,6 +19,7 @@
         padding: 10px;
 
         &__button{
+            box-sizing: border-box;
             background-color: rgba(0, 0, 0, 0.7);
             border-radius: 8px;
             width: fit-content;
@@ -33,6 +28,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 1s;
     
             &__fav-image{
                 height: 1.4em;
@@ -66,5 +62,11 @@
                 cursor: pointer;
             }
         }
+    }
+}
+
+@media only screen and (min-width: 1000px) {
+    .container{
+        width: 25%;
     }
 }

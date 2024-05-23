@@ -1,0 +1,27 @@
+.images-displayer {
+  width: 100%;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 5% 0;
+}
+.images-displayer__separator {
+  border: 1px solid black;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+}
+.images-displayer__separator__first {
+  left: 33%;
+}
+.images-displayer__separator__second {
+  left: 66%;
+}
+
+@media only screen and (min-width: 1000px) {
+  .images-displayer__separator {
+    visibility: visible;
+  }
+}/*# sourceMappingURL=SearchPage.css.map */
