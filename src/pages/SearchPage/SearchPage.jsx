@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchSearchThunk } from "../../features/SearchSlice/searchThunk.js";
-import { addFavPhoto } from "../../features/SearchSlice/SearchSlice.js";
+import { toggleFavPhoto } from "../../features/SearchSlice/SearchSlice.js";
 import './SearchPage.css'
 
 export const SearchPage = () => {
@@ -48,8 +48,8 @@ export const SearchPage = () => {
         }
     }, [searchStatus])
 
-    const favButtonhandler = (event) => {
-        dispatch(addFavPhoto(event))
+    const favButtonhandler = (image) => {
+        dispatch(toggleFavPhoto(image))
     }
 
     return(
@@ -63,7 +63,7 @@ export const SearchPage = () => {
                 <>
                     <HeaderComponent values={searchPageValues} />
                     <div className="images-displayer">
-                        {images.map((imageElement, index) => <ImageComponent image={imageElement} fav={false} favHandler={favButtonhandler} key={imageElement.id}/>)}
+                        {images.map((imageElement, index) => <ImageComponent image={imageElement} extended={true} favHandler={favButtonhandler} key={imageElement.id}/>)}
                         <div className="images-displayer__separator images-displayer__separator__first"/>
                         <div className="images-displayer__separator images-displayer__separator__second"/>
                     </div>

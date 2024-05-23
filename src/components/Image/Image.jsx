@@ -27,8 +27,8 @@ export const ImageComponent = (props) => {
   return (
     <div className='container'>
       <div className='container__ui'>
-        <div className='container__ui__button container__ui__button__fav-position' onClick={() => toggleFav(props.image)} image={props.image}>
-          <img src={buttonImage} alt='Fav' className='container__ui__button__fav-image' image={props.image}/>
+        <div className='container__ui__button container__ui__button__fav-position' onClick={() => toggleFav(props.image)}>
+          <img src={buttonImage} alt='Fav' className='container__ui__button__fav-image'/>
         </div>
 
         <div className='container__ui__button container__ui__button__download-position'>
@@ -36,12 +36,7 @@ export const ImageComponent = (props) => {
           <img src='./src/assets/download.svg' alt='Fav' className='container__ui__button__download-image'/>
         </div>
       </div>
-      <img src={props.image.urls.small} alt="Image not found" className='container__image'/>
+      <img src={props.extended ? props.image.urls.small : props.image.imageUrl} alt="Image not found" className='container__image'/>
     </div>
   );
-}
-
-ImageComponent.defaultProps = {
-  url: 'https://salonlfc.com/wp-content/uploads/2018/01/image-not-found-1-scaled-1150x647.png',
-  fav: false,
 }
