@@ -13,7 +13,8 @@ export const SearchPage = () => {
         buttonText:'Fav',
         imageUrl:'./src/assets/favPage.svg',
         imageAlt:'Fav page',
-        linkTo:'/favourites'
+        linkTo:'/favourites',
+        hideDropdown: true
     }
 
     const [loading, setLoading] = useState(true);

@@ -1,7 +1,21 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
 
-export const HeaderComponent = (props) => {
+const defaultParameter = {
+  values:{
+    titleName: 'All Images',
+    buttonText:'All',
+    imageUrl:'./src/assets/favPage.svg',
+    imageAlt:'Fav page',
+    linkTo:'/favourites',
+    hideDropdown: true
+  },
+  filterMethod: () => {},
+  orderMethod: () => {},
+}
+
+export const HeaderComponent = (props = defaultParameter) => {
+
   return (
     <header className='header' >
       <div className="header__main">
@@ -13,31 +27,22 @@ export const HeaderComponent = (props) => {
             <img src={props.values.imageUrl} alt={props.values.imageAlt}/></button>
         </Link>
 
-        <div className='header__main__search-bar'>
+        <form className='header__main__search-bar' onSubmit={props.filterMethod}>
             <img src='./src/assets/searchIcon.svg'/>
             <input type='text' placeholder='Search' className='header__main__search-bar__input'/>
-        </div>
+        </form>
 
-        <div  className='header__main__dropdown-container'>
+        <div  className='header__main__dropdown-container' style={{visibility: props.values.hideDropdown ? 'hidden' : 'visible'}} >
           <p>Order by:</p>
-          <select name="cars" id="cars" className='header__main__dropdown-container__dropdown' >
+          <select name="cars" id="cars" className='header__main__dropdown-container__dropdown' onChange={props.orderMethod}>
             <option value="a">Width</option>
             <option value="saab">Height</option>
             <option value="opel">Likes</option>
+            <option value="opel">Date added</option>
           </select>
         </div>
       </div>
         
     </header>
   );
-}
-
-HeaderComponent.defaultProps = {
-  values:{
-    titleName: 'All Images',
-    buttonText:'All',
-    imageUrl:'./src/assets/favPage.svg',
-    imageAlt:'Fav page',
-    linkTo:'/favourites'
-  }
 }

@@ -5,11 +5,5 @@ export const FavouriteSlice = createSlice({
     initialState: { dataFav: [] },
     reducers: {
         //Dentro de action.payload estan los datos
-        addFavorite: (state, action) => {
-            state.dataFav.push(action.payload);
-        },
-        removeFavorite: (state, action) => {
-
-        }
     }
 })

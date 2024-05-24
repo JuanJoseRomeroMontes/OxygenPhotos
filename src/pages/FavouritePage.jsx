@@ -8,16 +8,17 @@ export const FavouritePage = () => {
         buttonText:'Search',
         imageUrl:'./src/assets/photosPage.svg',
         imageAlt:'Photos page',
-        linkTo:'/'
+        linkTo:'/',
+        hideDropdown: false
     }
 
-    const [favImages, setFavImages] = useState([JSON.parse(localStorage.getItem("favPhotosArray") || "[]") ]);
+    const favImagesData = JSON.parse(localStorage.getItem("favPhotosArray") || "[]");
+    const [favImagesDisplay, setFavImagesDisplay] = useState(favImagesData);
 
-    const favButtonhandler = (image) => {
-        
-        if(!favImages[0].some(favImages => favImages.id === image.id))
+    const favButtonHandler = (image) => {
+        if(!favImagesData[0].some(favImagesData => favImagesData.id === image.id))
             {
-                favImages[0].push({
+                favImagesData[0].push({
                     id: image.id,
                     imageUrl: image.imageUrl,
                     downloadUrl: image.downloadUrl,
@@ -28,21 +29,29 @@ export const FavouritePage = () => {
                     date: new Date(),
                 });
     
-                localStorage.setItem("favPhotosArray", JSON.stringify(favImages[0]))
+                localStorage.setItem("favPhotosArray", JSON.stringify(favImagesData[0]))
             }
             else
             {
-                favImages[0] = favImages[0].filter(favImages => favImages.id !== image.id);
+                favImagesData[0] = favImagesData[0].filter(favImagesData => favImagesData.id !== image.id);
 
-                localStorage.setItem("favPhotosArray", JSON.stringify(favImages[0]))
+                localStorage.setItem("favPhotosArray", JSON.stringify(favImagesData[0]))
             }
+    }
+
+    const filterButtonHandler = () => {
+
+    }
+
+    const orderButtonHandler = () => {
+
     }
 
     return(
         <>
-            <HeaderComponent values={favValues} />
+            <HeaderComponent values={favValues} filterHandler={filterButtonHandler} orderHandler={orderButtonHandler}/>
             <div className="images-displayer">
-            {favImages[0].map((imageElement, index) => <ImageComponent image={imageElement} extended={false} favHandler={favButtonhandler} key={imageElement.id}/>)}
+            {favImagesDisplay.map((imageElement, index) => <ImageComponent image={imageElement} extended={false} favHandler={favButtonHandler} key={imageElement.id}/>)}
             </div>
         </>
     )
