@@ -9,7 +9,7 @@ export const FavouritePage = () => {
         imageUrl:'./src/assets/photosPage.svg',
         imageAlt:'Photos page',
         linkTo:'/',
-        hideDropdown: false
+        renderDropdown: true
     }
 
     let favImagesData = JSON.parse(localStorage.getItem("favPhotosArray") || "[]");
@@ -39,12 +39,18 @@ export const FavouritePage = () => {
             }
     }
 
+    
+
     const filterButtonHandler = () => {
 
     }
 
-    const orderButtonHandler = () => {
+    const orderButtonHandler = (event) => {
+        console.log(event)
+        event.preventDefault()
+        setFavImagesDisplay(() => {
 
+        })
     }
 
     return(

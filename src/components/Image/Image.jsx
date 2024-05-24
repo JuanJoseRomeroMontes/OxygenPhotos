@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import FileSaver, { saveAs } from 'file-saver';
 import './Image.css';
 
 export const ImageComponent = (props) => {
@@ -23,6 +24,13 @@ export const ImageComponent = (props) => {
 
     props.favHandler(functionCalled)
   }
+
+  function downloadImage() {
+    if(props.extended)
+      FileSaver.saveAs(props.image.urls.full, "image.jpg");
+    else
+      FileSaver.saveAs(props.image.downloadUrl, "image.jpg");
+  }
   
   return (
     <div className='container'>
@@ -31,7 +39,7 @@ export const ImageComponent = (props) => {
           <img src={buttonImage} alt='Fav' className='container__ui__button__fav-image'/>
         </div>
 
-        <div className='container__ui__button container__ui__button__download-position'>
+        <div className='container__ui__button container__ui__button__download-position' onClick={downloadImage}>
           <p className='container__ui__button__text'>Download</p>
           <img src='./src/assets/download.svg' alt='Fav' className='container__ui__button__download-image'/>
         </div>

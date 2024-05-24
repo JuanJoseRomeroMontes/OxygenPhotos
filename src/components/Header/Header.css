@@ -55,7 +55,10 @@
   align-items: center;
   justify-content: space-between;
   height: 1.5em;
-  width: 50%;
+  width: 45%;
+}
+.header__main__search-bar__large {
+  width: 100%;
 }
 .header__main__search-bar img {
   height: 1.125em;
@@ -76,7 +79,7 @@
   align-items: center;
   justify-content: space-between;
   height: 1.5em;
-  width: 40%;
+  width: 45%;
 }
 .header__main__dropdown-container p {
   border: none;
@@ -102,6 +105,9 @@
   }
   .header__main__search-bar {
     width: 45%;
+  }
+  .header__main__search-bar__large {
+    width: 65%;
   }
   .header__main__dropdown-container {
     width: 15%;

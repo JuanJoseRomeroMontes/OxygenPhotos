@@ -3,7 +3,7 @@ import { ImageComponent } from "../../components/Image/Image.jsx";
 import { useEffect, useState } from "react";
 import { Bounce, ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchSearchThunk } from "../../features/SearchSlice/searchThunk.js";
+import { FetchRandomThunk, FetchSearchThunk } from "../../features/SearchSlice/searchThunk.js";
 import { toggleFavPhoto } from "../../features/SearchSlice/SearchSlice.js";
 import './SearchPage.css'
 
@@ -14,7 +14,7 @@ export const SearchPage = () => {
         imageUrl:'./src/assets/favPage.svg',
         imageAlt:'Fav page',
         linkTo:'/favourites',
-        hideDropdown: true
+        renderDropdown: false
     }
 
     const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ export const SearchPage = () => {
 
     useEffect(() => {
         if (searchStatus === 'idle') {
-            dispatch(FetchSearchThunk())
+            dispatch(FetchRandomThunk())
         }
         else if (searchStatus === 'fulfilled') {
             setLoading(false)
@@ -53,6 +53,18 @@ export const SearchPage = () => {
         dispatch(toggleFavPhoto(image))
     }
 
+    const filterButtonHandler = (event) => {
+        event.preventDefault()
+
+        const value = event.target.input.value
+        console.log(value)
+
+        if(value === "")
+            dispatch(FetchRandomThunk())
+        else
+            dispatch(FetchSearchThunk(value))
+    }
+
     return(
         <>
         {
@@ -62,13 +74,14 @@ export const SearchPage = () => {
                 </>
             ) : (
                 <>
-                    <HeaderComponent values={searchPageValues} />
+                    <HeaderComponent values={searchPageValues} filterHandler={filterButtonHandler}/>
                     <div className="images-displayer">
                         {images.map((imageElement, index) => <ImageComponent image={imageElement} extended={true} favHandler={favButtonhandler} key={imageElement.id}/>)}
                         <div className="images-displayer__separator images-displayer__separator__first"/>
                         <div className="images-displayer__separator images-displayer__separator__second"/>
                     </div>
                     <ToastContainer />
+                    
                 </>
             )
         }

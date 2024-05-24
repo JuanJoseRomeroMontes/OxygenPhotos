@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { FetchSearchThunk } from "./searchThunk";
+import { FetchRandomThunk, FetchSearchThunk } from "./searchThunk";
 
 export const SearchSlice = createSlice({
     name: "search",
@@ -44,6 +44,17 @@ export const SearchSlice = createSlice({
             state.data = action.payload
         })
         .addCase(FetchSearchThunk.rejected, (state, action) => {
+            state.status = 'rejected'
+            state.error = action.error
+        })
+        .addCase(FetchRandomThunk.pending, (state, action) => {
+            state.status = 'pending'
+        })
+        .addCase(FetchRandomThunk.fulfilled, (state, action) => {
+            state.status = 'fulfilled'
+            state.data = action.payload
+        })
+        .addCase(FetchRandomThunk.rejected, (state, action) => {
             state.status = 'rejected'
             state.error = action.error
         })
