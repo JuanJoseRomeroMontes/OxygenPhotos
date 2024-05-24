@@ -10,7 +10,7 @@ export const SearchSlice = createSlice({
     },
     reducers: {
         toggleFavPhoto: (state, action) => {
-            let storage = JSON.parse(localStorage.getItem("favPhotosArray") || "[]") 
+            let storage = JSON.parse(localStorage.getItem("favPhotosArray") || "[]")
 
             if(!storage.some(image => image.id === action.payload.id))
             {

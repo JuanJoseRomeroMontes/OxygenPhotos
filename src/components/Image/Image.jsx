@@ -21,7 +21,7 @@ export const ImageComponent = (props) => {
     else
     setButtonImage(unfavImage)
 
-      props.favHandler(functionCalled)
+    props.favHandler(functionCalled)
   }
   
   return (

@@ -12,13 +12,13 @@ export const FavouritePage = () => {
         hideDropdown: false
     }
 
-    const favImagesData = JSON.parse(localStorage.getItem("favPhotosArray") || "[]");
+    let favImagesData = JSON.parse(localStorage.getItem("favPhotosArray") || "[]");
     const [favImagesDisplay, setFavImagesDisplay] = useState(favImagesData);
 
     const favButtonHandler = (image) => {
-        if(!favImagesData[0].some(favImagesData => favImagesData.id === image.id))
+        if(!favImagesData.some(favImagesData => favImagesData.id === image.id))
             {
-                favImagesData[0].push({
+                favImagesData.push({
                     id: image.id,
                     imageUrl: image.imageUrl,
                     downloadUrl: image.downloadUrl,
@@ -29,13 +29,13 @@ export const FavouritePage = () => {
                     date: new Date(),
                 });
     
-                localStorage.setItem("favPhotosArray", JSON.stringify(favImagesData[0]))
+                localStorage.setItem("favPhotosArray", JSON.stringify(favImagesData))
             }
             else
             {
-                favImagesData[0] = favImagesData[0].filter(favImagesData => favImagesData.id !== image.id);
+                favImagesData = favImagesData.filter(favImagesData => favImagesData.id !== image.id);
 
-                localStorage.setItem("favPhotosArray", JSON.stringify(favImagesData[0]))
+                localStorage.setItem("favPhotosArray", JSON.stringify(favImagesData))
             }
     }
 
