@@ -33,24 +33,37 @@ export const FavouritePage = () => {
             }
             else
             {
-                favImagesData = favImagesData.filter(favImagesData => favImagesData.id !== image.id);
-
-                localStorage.setItem("favPhotosArray", JSON.stringify(favImagesData))
+                localStorage.setItem("favPhotosArray", JSON.stringify(favImagesData.filter(favImagesData => favImagesData.id !== image.id)))
             }
     }
 
-    
+    const filterButtonHandler = (event) => {
+        event.preventDefault()
 
-    const filterButtonHandler = () => {
-
+        setFavImagesDisplay(favImagesData.filter(image => image.description.toLowerCase().includes(event.target.input.value.toLowerCase())))
     }
 
     const orderButtonHandler = (event) => {
-        console.log(event)
-        event.preventDefault()
-        setFavImagesDisplay(() => {
-
-        })
+        switch(event.target.value){
+            case 'width':
+                console.log('order by width')
+                setFavImagesDisplay(favImagesData.sort((a,b)=>{ return b.width-a.width}))
+                break;
+            case 'height':
+                console.log('order by height')
+                setFavImagesDisplay(favImagesData.sort((a,b)=>{ return b.height-a.height}))
+                break;
+            case 'likes':
+                console.log('order by likes')
+                setFavImagesDisplay(favImagesData.sort((a,b)=>{ return b.likes-a.likes}))
+                break;
+            case 'date':
+                console.log('order by date')
+                setFavImagesDisplay(favImagesData.sort((a,b)=>{ return new Date(b.date) - new Date(a.date)}))
+                break;
+            default:
+                console.log('error')
+        }
     }
 
     return(

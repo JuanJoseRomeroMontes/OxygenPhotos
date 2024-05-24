@@ -55,9 +55,7 @@ export const SearchPage = () => {
 
     const filterButtonHandler = (event) => {
         event.preventDefault()
-
         const value = event.target.input.value
-        console.log(value)
 
         if(value === "")
             dispatch(FetchRandomThunk())
