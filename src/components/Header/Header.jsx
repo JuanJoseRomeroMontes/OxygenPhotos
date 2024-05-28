@@ -36,7 +36,7 @@ export const HeaderComponent = (props = defaultParameter) => {
           <div  className='header__main__dropdown-container'>
             <p>Order by:</p>
             <select name="dropdown" id="dropdown" className='header__main__dropdown-container__dropdown' onChange={props.orderHandler}>
-              <option disabled selected style={{display:'none'}}></option>
+              <option style={{display:'none'}}></option>
               <option value="width">Width</option>
               <option value="height">Height</option>
               <option value="likes">Likes</option>

@@ -60,19 +60,20 @@ export const FavouritePage = () => {
     }
 
     const orderButtonHandler = (event) => {
+        const data = [...favImagesData]
         
         switch(event.target.value){
             case 'width':
-                setFavImagesDisplay(favImagesData.sort((a,b)=>{ b.width-a.width}))
+                setFavImagesDisplay(data.sort((a,b)=>{ return b.width-a.width}))
                 break;
             case 'height':
-                setFavImagesDisplay(favImagesData.sort((a,b)=>{ b.height-a.height}))
+                setFavImagesDisplay(data.sort((a,b)=>{ return b.height-a.height}))
                 break;
             case 'likes':
-                setFavImagesDisplay(favImagesData.sort((a,b)=>{ b.likes-a.likes}))
+                setFavImagesDisplay(data.sort((a,b)=>{ return b.likes-a.likes}))
                 break;
             case 'date':
-                setFavImagesDisplay(favImagesData.sort((a,b)=>{ new Date(b.date) - new Date(a.date)}))
+                setFavImagesDisplay(data.sort((a,b)=>{ return new Date(b.date) - new Date(a.date)}))
                 break;
             default:
                 console.log('error')
