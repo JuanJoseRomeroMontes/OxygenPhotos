@@ -74,7 +74,7 @@ export const SearchPage = () => {
                 <>
                     <HeaderComponent values={searchPageValues} filterHandler={filterButtonHandler}/>
                     <div className="images-displayer">
-                        {images.map((imageElement, index) => <ImageComponent image={imageElement} extended={true} favHandler={favButtonhandler} key={imageElement.id}/>)}
+                        {images.map((imageElement, index) => <ImageComponent image={imageElement} extended={true} modal={false} favHandler={favButtonhandler} key={imageElement.id}/>)}
                         <div className="images-displayer__separator images-displayer__separator__first"/>
                         <div className="images-displayer__separator images-displayer__separator__second"/>
                     </div>

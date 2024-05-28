@@ -27,7 +27,7 @@ export const HeaderComponent = (props = defaultParameter) => {
             <img src={props.values.imageUrl} alt={props.values.imageAlt}/></button>
         </Link>
 
-        <form className={`header__main__search-bar ${props.values.renderDropdown ? 'header__main__search-bar__large' : ''}`} onSubmit={props.filterHandler}>
+        <form className={`header__main__search-bar ${!props.values.renderDropdown ? 'header__main__search-bar__large' : ''}`} onSubmit={props.filterHandler}>
             <img src='./src/assets/searchIcon.svg'/>
             <input type='text' placeholder='Search' name='input'/>
         </form>
@@ -36,6 +36,7 @@ export const HeaderComponent = (props = defaultParameter) => {
           <div  className='header__main__dropdown-container'>
             <p>Order by:</p>
             <select name="dropdown" id="dropdown" className='header__main__dropdown-container__dropdown' onChange={props.orderHandler}>
+              <option disabled selected style={{display:'none'}}></option>
               <option value="width">Width</option>
               <option value="height">Height</option>
               <option value="likes">Likes</option>
