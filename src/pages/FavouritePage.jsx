@@ -2,12 +2,13 @@ import { useState } from "react";
 import { HeaderComponent } from "../components/Header/Header";
 import { ImageComponent } from "../components/Image/Image";
 import { ModalComponent } from "../components/Modal/Modal";
+import photosPageIcon from '../assets/photosPage.svg';
 
 export const FavouritePage = () => {
     const favValues = {
         titleName: 'Fav Images',
         buttonText:'Search',
-        imageUrl:'./src/assets/photosPage.svg',
+        imageUrl: photosPageIcon,
         imageAlt:'Photos page',
         linkTo:'/',
         renderDropdown: true

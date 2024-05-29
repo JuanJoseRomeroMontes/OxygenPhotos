@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { FetchRandomThunk, FetchSearchThunk } from "../../features/SearchSlice/searchThunk.js";
 import { toggleFavPhoto } from "../../features/SearchSlice/SearchSlice.js";
 import './SearchPage.css'
+import favPageIcon from '../../assets//favPage.svg';
 
 export const SearchPage = () => {
     const searchPageValues = {
         titleName: 'All Images',
         buttonText:'Fav',
-        imageUrl:'./src/assets/favPage.svg',
+        imageUrl: favPageIcon,
         imageAlt:'Fav page',
         linkTo:'/favourites',
         renderDropdown: false

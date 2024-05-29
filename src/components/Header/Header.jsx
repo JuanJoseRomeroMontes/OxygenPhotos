@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import './Header.css';
+import favPageIcon from '../../assets/favPage.svg';
+import lensIcon from '../../assets/searchIcon.svg';
 
 const defaultParameter = {
   values:{
     titleName: 'All Images',
     buttonText:'All',
-    imageUrl:'./src/assets/favPage.svg',
+    imageUrl: favPageIcon,
     imageAlt:'Fav page',
     linkTo:'/favourites',
     renderDropdown: true
@@ -28,7 +30,7 @@ export const HeaderComponent = (props = defaultParameter) => {
         </Link>
 
         <form className={`header__main__search-bar ${!props.values.renderDropdown ? 'header__main__search-bar__large' : ''}`} onSubmit={props.filterHandler}>
-            <img src='./src/assets/searchIcon.svg'/>
+            <img src={lensIcon}/>
             <input type='text' placeholder='Search' name='input'/>
         </form>
 

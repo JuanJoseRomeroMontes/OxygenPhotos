@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { ImageComponent } from "../Image/Image";
 import './Modal.css'
+import editIcon from '../../assets/edit.svg';
 
 export const ModalComponent = (props) => {
-
   const [value, setValue] = useState(props.imageData.description);
   const textareaRef = useRef(null);
 
@@ -36,6 +36,8 @@ export const ModalComponent = (props) => {
         storage.splice(indexToReplace, 1, props.imageData);
 
         localStorage.setItem("favPhotosArray", JSON.stringify(storage))
+
+        props.closeModal();
       }
     }
   }
@@ -46,7 +48,7 @@ export const ModalComponent = (props) => {
           <ImageComponent extended={false} modal={true} image={props.imageData} favHandler={props.favHandler}/>
           <div className="modal__description-container" onClick={focusTextArea}>
               <h1>Description</h1>
-              <img src="./src/assets/edit.svg" alt="edit" />
+              <img src={editIcon} alt="edit" />
               
               <form className="one-line">
                 <textarea rows='1' ref={textareaRef} onKeyUp={changeDescription} onChange={handleChange} placeholder='Description here...' 

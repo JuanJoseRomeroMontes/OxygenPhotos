@@ -4,13 +4,13 @@ import FileSaver, { saveAs } from 'file-saver';
 import './Image.css';
 
 export const ImageComponent = (props) => {
-  const unfavImage = './src/assets/unfavPhoto.svg'
-  const favImage = './src/assets/favPhoto.svg'
+  const unfavImage = '/imagenes/unfavPhoto.svg'
+  const favImage = '/imagenes/favPhoto.svg'
   const [buttonImage, setButtonImage] = useState('');
-  const storage = JSON.parse(localStorage.getItem("favPhotosArray") || [])
+  const storage = JSON.parse(localStorage.getItem("favPhotosArray")) || "[]"
 
   useEffect(() => {
-    if(storage.some(image => image.id === props.image.id))
+    if(imageIsInArray(storage, props.image))
       setButtonImage(unfavImage)
     else
       setButtonImage(favImage)
@@ -48,7 +48,7 @@ export const ImageComponent = (props) => {
 
         <div className='container__ui__button container__ui__button__download-position' onClick={downloadImage}>
           <p className='container__ui__button__text'>Download</p>
-          <img src='./src/assets/download.svg' alt='Fav' className='container__ui__button__download-image'/>
+          <img src='/imagenes/download.svg' alt='Fav' className='container__ui__button__download-image'/>
         </div>
 
         { props.modal && 
@@ -72,4 +72,13 @@ export const ImageComponent = (props) => {
       <img src={props.extended ? props.image.urls.small : props.image.imageUrl} alt="Image not found" className='container__image' onClick={openModal}/>
     </div>
   );
+}
+
+export function imageIsInArray(array, imageSearched){
+  for (let i = 0; i < array.length; i++) {
+      if( array[i] === imageSearched.id)
+          return true;
+  }
+
+  return false;
 }
