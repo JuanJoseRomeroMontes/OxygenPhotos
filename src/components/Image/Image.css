@@ -99,6 +99,7 @@
   width: auto;
   margin: 0;
   pointer-events: auto;
+  max-height: 50%;
 }
 
 @media only screen and (min-width: 1000px) {

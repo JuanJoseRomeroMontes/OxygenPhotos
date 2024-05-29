@@ -1,7 +1,26 @@
+import { useEffect, useRef, useState } from "react";
 import { ImageComponent } from "../Image/Image";
 import './Modal.css'
 
 export const ModalComponent = (props) => {
+
+  const [value, setValue] = useState(props.imageData.description);
+  const textareaRef = useRef(null);
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
+  }, [value]);
+
+  function focusTextArea(){
+    textareaRef.current.focus();
+  }
 
   function changeDescription(event){
     event.preventDefault()
@@ -25,13 +44,13 @@ export const ModalComponent = (props) => {
     <>
       <div className='modal'>
           <ImageComponent extended={false} modal={true} image={props.imageData} favHandler={props.favHandler}/>
-          <div className="modal__description-container">
+          <div className="modal__description-container" onClick={focusTextArea}>
               <h1>Description</h1>
               <img src="./src/assets/edit.svg" alt="edit" />
               
               <form className="one-line">
-                <textarea onKeyUp={changeDescription} placeholder='Description here...' name='description-input'  
-                className="modal__description-container__input" defaultValue={props.imageData.description} />
+                <textarea rows='1' ref={textareaRef} onKeyUp={changeDescription} onChange={handleChange} placeholder='Description here...' 
+                name='description-input' className="modal__description-container__input" value={value}/>
               </form>
           </div>
       </div>
